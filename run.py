@@ -1,5 +1,5 @@
 from app import app
+import view
 
-if __name__ == "__main__":
-    print('111ffff')
-    app.run()
+if __name__ == '__main__':
+	app.run()

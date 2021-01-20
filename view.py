@@ -1,9 +1,12 @@
 from app import app
+import controllers
 
-@app.route('/')
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return 'Hello world!'
+	return controllers.PageController().call(page='index')
 
-@app.route('/page1')
-def one_page(method="POST"):
-    return 'one page'
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return controllers.PageController().call(page='404error', error=404)
